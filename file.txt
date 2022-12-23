@@ -1,0 +1,69 @@
+if(date.getDay()===6||date.getDay()===0){
+         day=date.getDay()
+         res.render('list',{kindOfDay:day})
+     }
+     else{
+         day=JSON.parse(date.getDay())
+        res.render('list',{kindOfDay:day}) //res.render('ejsfile',{variableOfejsPage:variableOfappPage})
+     }
+
+    var currentDay=date.getDay()
+    var day=""
+    switch (currentDay) {
+        case 0:
+            day='Sunday'
+            res.render('list',{kindOfDay:day})
+            break;
+        case 1:
+            day='Monday'
+            res.render('list',{kindOfDay:day})
+            break;
+        case 2:
+            day='Tuesday'
+            res.render('list',{kindOfDay:day})
+            break;
+        case 3:
+            day='Wednesday'
+            res.render('list',{kindOfDay:day})
+            break;
+        case 4:
+            day='Thursday'
+            res.render('list',{kindOfDay:day})
+            break;
+        case 5:
+            day='Friday'
+            res.render('list',{kindOfDay:day})
+            break;
+        case 6:
+            day='Saturday'
+            res.render('list',{kindOfDay:day})
+            break;
+        default:
+            console.log("nothing");
+            break;
+    }
+
+    <!-- open and closed tag <%""%> used for javascript -->
+    <% if(kindOfDay==="Saturday"||kindOfDay==="Sunday"){ %> 
+        <h1 style="color:purple"><%=kindOfDay%> ToDo list!</h1>
+    <%}else{%>
+        <h1 style="color:blue"><%=kindOfDay%> ToDo list!</h1>
+    <%}%>
+
+    const date=new Date();
+
+    // var options={
+    //     weekday:'long',
+    //     day:'numeric',
+    //     month:'long'
+    // }
+    
+    // var day=date.toLocaleDateString('en-US',options)
+    List.deleteMany({},(err)=>{
+//     if(err){
+//         console.log(err);
+//     }
+//     else{
+//         console.log('deleted successfully...');
+//     }
+// })
